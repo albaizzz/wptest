@@ -1,0 +1,38 @@
+app:
+  name: messaging
+  port: 8081
+  env: dev #dev|stg|prod
+  timezone: Asia/Jakarta
+  debug: true  #in production set false
+  read_timeout: 10 # in second
+  write_timeout: 10 # in second
+  callback_timeout: 10 # in second
+
+api:
+  prefix: "/devices/v1"
+
+kafka:
+  brokerList: "localhost:9092"
+  groupId: "device"
+  messageCountStart: ""
+  offsetType: "-1"
+  partition: "0"
+  messaging_consumer:
+    topic: "device"
+    group: "device_group"
+    time_sleep: 0
+    message_poll: 200
+    consumer_type: "device"
+
+
+MariaDB:
+  db_name: wptest
+  host: 172.17.0.2
+  port: 3306
+  user: root
+  password: root
+  charset: utf8
+
+log:
+  dir: "logs"
+  filename: "devices.log"
